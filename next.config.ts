@@ -17,24 +17,6 @@ const securityHeaders = [
     key: "Strict-Transport-Security",
     value: "max-age=63072000; includeSubDomains; preload",
   },
-  // Content Security Policy
-  // 'unsafe-inline' required by Next.js App Router hydration scripts
-  // All fonts/assets served from same origin via next/font and next/image
-  {
-    key: "Content-Security-Policy",
-    value: [
-      "default-src 'self'",
-      "script-src 'self' 'unsafe-inline'",
-      "style-src 'self' 'unsafe-inline'",
-      "font-src 'self'",
-      "img-src 'self' data:",
-      "connect-src 'self'",
-      "frame-ancestors 'none'",
-      "object-src 'none'",
-      "base-uri 'self'",
-      "form-action 'self'",
-    ].join("; "),
-  },
 ];
 
 const nextConfig: NextConfig = {

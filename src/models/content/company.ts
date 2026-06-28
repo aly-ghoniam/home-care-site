@@ -6,7 +6,7 @@ import type { Company } from '../types/company'
 // name/email/address — appear in the privacy policy and footer
 
 export const COMPANY: Company = {
-  name: '[PLACEHOLDER: Business Name]',
+  name: 'Heloai',
   tagline: 'Compassionate Home Care Across London',
   phone: '+44 20 0000 0000',
   email: 'hello@[PLACEHOLDER].co.uk',
