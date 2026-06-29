@@ -50,6 +50,52 @@ p {
   max-width: 70ch;
 }
 
+/* ── Decorative utilities ──────────────────────── */
+
+/* Editorial eyebrow label */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+/* Soft dot-grid texture — sits behind content, aria-hidden */
+.dot-grid {
+  background-image: radial-gradient(
+    oklch(27% 0.07 240 / 0.10) 1px,
+    transparent 1.4px
+  );
+  background-size: 22px 22px;
+}
+.dot-grid-light {
+  background-image: radial-gradient(
+    oklch(100% 0 0 / 0.10) 1px,
+    transparent 1.4px
+  );
+  background-size: 22px 22px;
+}
+
+/* Blurred gradient orb for layered depth */
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(64px);
+  pointer-events: none;
+  will-change: transform;
+}
+
 /* ── Keyframes ─────────────────────────────────── */
 
 @keyframes ken-burns {
@@ -71,6 +117,11 @@ p {
   0%   { box-shadow: 0 0 0 0  oklch(88% 0.06 224 / 0.55); }
   70%  { box-shadow: 0 0 0 18px oklch(88% 0.06 224 / 0); }
   100% { box-shadow: 0 0 0 0  oklch(88% 0.06 224 / 0); }
+}
+
+@keyframes orb-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(24px, -18px) scale(1.06); }
 }
 
 @media (prefers-reduced-motion: reduce) {

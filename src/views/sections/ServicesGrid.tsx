@@ -4,26 +4,35 @@ import { motion } from 'motion/react'
 import type { Service } from '../../models/types/service'
 import { ServiceCard } from '../ui/ServiceCard'
 import { Container } from '../ui/Container'
+import { Orb } from '../ui/Decor'
 
 interface ServicesGridProps {
   services: Service[]
+  eyebrow?: string
   heading?: string
   subheading?: string
 }
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
-export function ServicesGrid({ services, heading = 'Our Services', subheading }: ServicesGridProps) {
+export function ServicesGrid({
+  services,
+  eyebrow = 'What we offer',
+  heading = 'Our Services',
+  subheading,
+}: ServicesGridProps) {
   return (
-    <section aria-labelledby="services-heading" className="py-24 bg-navy">
-      <Container>
+    <section aria-labelledby="services-heading" className="relative py-24 bg-navy overflow-hidden">
+      <Orb color="bg-blue-baby/12" position="bottom-[-8rem] left-[-6rem] h-96 w-96" />
+      <Container className="relative">
         <motion.div
-          className="mb-14"
+          className="mb-14 max-w-2xl"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.65, ease: EASE }}
         >
+          {eyebrow && <p className="eyebrow text-blue-baby mb-4">{eyebrow}</p>}
           <h2
             id="services-heading"
             className="font-heading text-3xl sm:text-4xl font-bold leading-tight tracking-tight text-white mb-4"

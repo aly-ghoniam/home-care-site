@@ -1,8 +1,7 @@
 import { getTeamPageData } from '../../controllers/teamController'
 import { getMetadata } from '../../controllers/seoController'
 import { TeamGrid } from '../../views/sections/TeamGrid'
-import { Container } from '../../views/ui/Container'
-import { Heading } from '../../views/ui/Heading'
+import { PageHero } from '../../views/sections/PageHero'
 
 export const metadata = getMetadata('team')
 
@@ -11,17 +10,11 @@ export default function TeamPage() {
 
   return (
     <>
-      <section className="bg-navy py-20">
-        <Container>
-          <Heading as="h1" className="text-white mb-4">
-            Meet the Team
-          </Heading>
-          <p className="text-xl text-white/80 leading-relaxed max-w-2xl">
-            Our carers are trained, vetted, and passionate about the work they do. [PLACEHOLDER:
-            introduce the team with warmth and authenticity.]
-          </p>
-        </Container>
-      </section>
+      <PageHero
+        eyebrow="The people behind the care"
+        title="Meet the Team"
+        description="Our carers are trained, vetted, and genuinely passionate about the work they do — the familiar, friendly faces who become part of your family's routine."
+      />
 
       <TeamGrid members={members} hasRealPhotos={hasRealPhotos} />
     </>
